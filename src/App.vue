@@ -1,7 +1,7 @@
 
 <template>
   <div class="app">
-    <nav>
+    <nav v-show="storeUser.isLoggedIn">
       <RouterLink to="/">Home</RouterLink> | 
       <RouterLink to="/about">About</RouterLink>
       <span @click="storeUser.logout()" v-show="storeUser.isLoggedIn"> | Logout</span> 

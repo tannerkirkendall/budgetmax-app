@@ -12,8 +12,6 @@
     <div v-if="!storeUser.isLoggedIn">
       <LoginOrCreateAccount></LoginOrCreateAccount>
     </div>
-
-    
   </div>
   </template>
 
@@ -24,17 +22,8 @@ const storeUser = useUserStore()
 
 import { onMounted, onUpdated } from 'vue'
 onMounted(() => {
-  console.log(`the component is now mounted.`)
   storeUser.checkLoggedIn()
 })
-
-onUpdated(() => {
-  console.log(`the component is now onUpdated.`)
-})
-
-
-
-
 </script>
 
 <style>

@@ -47,6 +47,7 @@ function postCreateNewAccount(firstName, lastName, password, email){
     })
     .then((r) => {
         console.log(r.data)
+        postLogin(email, password)
     })
 }
 

@@ -1,12 +1,20 @@
 import {ref, computed} from 'vue'
 import { defineStore } from 'pinia'
-// import { VueCookies } from 'vue-cookies'
 import axios from 'axios'
 
 export const useUserStore = defineStore('users', () => {
 
-const loginToken = ref('sdf')
+const loginToken = ref('')
+const isLoggedIn = computed(()=> {
+    if (loginToken.value.length > 0) return true
+    return false
+  })
 
+function logout(){
+    console.log('delete')
+    setCookie('token', "", -1)
+    checkLoggedIn()
+}
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -14,6 +22,19 @@ function setCookie(cname, cvalue, exdays) {
     let expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+function checkLoggedIn() {
+    loginToken.value = "";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      let cookieKeyPair = c.split('=');
+      if (cookieKeyPair[0].trim() === 'token'){
+        loginToken.value = cookieKeyPair[1]
+      }
+    }
+  }
   
 function postCreateNewAccount(firstName, lastName, password, email){
 
@@ -41,6 +62,6 @@ function postLogin(email, password) {
     })
 }
 
-    return {postCreateNewAccount, postLogin, loginToken, setCookie}
+    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout }
 
 })

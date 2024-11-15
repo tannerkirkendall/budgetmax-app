@@ -1,7 +1,7 @@
 
 <template>
   <div class="about">
-    <h1>Home</h1>
+    <h1>About</h1>
     <div class="count">{{ storeCounter.count }}</div>
     <div class="buttons">
       <button @click="storeCounter.decreaseCount">-</button>
@@ -32,6 +32,20 @@ import {useCounterStore} from '@/stores/counter'
 import CreateAccount from '@/components/CreateAccount.vue';
 import Login from '@/components/Login.vue';
 import LoginOrCreateAccount from '@/components/LoginOrCreateAccount.vue';
+import { onMounted, onUpdated } from 'vue'
+
+import {useUserStore} from '@/stores/userStore'
+const storeUser = useUserStore()
+
+onMounted(() => {
+  console.log(`about the component is now mounted.`)
+  storeUser.checkLoggedIn()
+})
+
+onUpdated(() => {
+  console.log(`about the component is now onUpdated.`)
+  storeUser.checkLoggedIn()
+})
 
 const storeCounter = useCounterStore()
 

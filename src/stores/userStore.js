@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export const useUserStore = defineStore('users', () => {
 
+const apiBase = import.meta.env.VITE_APP_API_PATH
 const loginToken = ref('')
 const isLoggedIn = computed(()=> {
     if (loginToken.value.length > 0) return true
@@ -39,7 +40,7 @@ function checkLoggedIn() {
 function postCreateNewAccount(firstName, lastName, password, email){
 
     axios
-    .post('https://localhost:44375/api/users/createnewaccount', {
+    .post(apiBase+'/api/users/createnewaccount', {
         firstName: firstName,
         lastName: lastName,
         password: password,
@@ -53,7 +54,7 @@ function postCreateNewAccount(firstName, lastName, password, email){
 
 function postLogin(email, password) {
     axios
-    .post('https://localhost:44375/api/auth/login', {
+    .post(apiBase+'/api/auth/login', {
         password: password,
         email: email
     })

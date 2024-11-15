@@ -12,6 +12,7 @@
     <div v-if="!storeUser.isLoggedIn">
       <LoginOrCreateAccount></LoginOrCreateAccount>
     </div>
+    
   </div>
   </template>
 
@@ -23,6 +24,7 @@ const storeUser = useUserStore()
 import { onMounted, onUpdated } from 'vue'
 onMounted(() => {
   storeUser.checkLoggedIn()
+  console.log(import.meta.env.VITE_APP_API_PATH)
 })
 </script>
 

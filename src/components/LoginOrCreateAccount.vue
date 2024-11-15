@@ -1,15 +1,25 @@
 <template>
     <div class="loginorcreate">
-        <div class="optionButtons">
+        <div class="loginOrCreateSel">
             <button @click="showHide(2)" class="option">Login</button>
             <button @click="showHide(1)" class="option">Create Account</button>
+
         </div>
-        <div v-show="showLogin" class="login">
-            <Login></Login>
+
+        <div class="forms">
+            <div v-show="showLogin">
+                <Login></Login>
+            </div>
+            <div v-show="showAccount">
+                <CreateAccount></CreateAccount>
+            </div>
         </div>
-        <div v-show="showAccount" class="create">
-            <CreateAccount></CreateAccount>
-        </div>
+
+
+
+
+
+
 
     </div>
 
@@ -37,17 +47,30 @@ function showHide(a){
 </script>
 
 <style>
+
 .option{
-    background-color: aqua;
-    width: 150px;
-    text-align: center;
-    border: 1px solid rgb(0, 48, 80);
-    margin: 4px;
+    width: max-content;
+    height: 55px;
 }
+
 .loginorcreate{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+
 }
-.optionButtons{
-    padding: 5px;
+.loginOrCreateSel{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    
+
+}
+
+.forms{
+    display: flex;
+    justify-content: center;
+    background-color: green;
+
 }
 </style>

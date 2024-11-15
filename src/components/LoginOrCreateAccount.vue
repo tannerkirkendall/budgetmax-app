@@ -42,6 +42,7 @@ function showHide(a){
     width: 150px;
     text-align: center;
     border: 1px solid rgb(0, 48, 80);
+    margin: 4px;
 }
 .loginorcreate{
     text-align: center;

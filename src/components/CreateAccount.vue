@@ -1,10 +1,10 @@
 <template>
     <div class="createAccountBase">
         <div class="accountForm">
-            <input v-model="firstName" placeholder="First Name" /> <br>
-            <input v-model="lastName" placeholder="Last Name" /> <br>
-            <input v-model="email" placeholder="Email" /> <br>
-            <input v-model="password" placeholder="Password" /> <br>
+            <input v-model="firstName" class="createForm" placeholder="First Name" /> <br>
+            <input v-model="lastName" class="createForm" placeholder="Last Name" /> <br>
+            <input v-model="email" class="createForm" placeholder="Email" /> <br>
+            <input v-model="password" class="createForm" placeholder="Password" /> <br>
 
             <input @click="getFormValues()" type="submit" />
         </div>
@@ -27,3 +27,10 @@ function getFormValues(){
   storeUser.postCreateNewAccount(firstName.value, lastName.value, password.value, email.value)
 }
 </script>
+
+<style>
+.createForm{
+    width: 300px;
+    margin-bottom: 5px;
+}
+</style>

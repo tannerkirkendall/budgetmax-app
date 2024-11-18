@@ -1,7 +1,7 @@
 <template>
     <div class="login-container">
         <form @submit.prevent="getFormValues()" class="login-form">
-            <h2>Login</h2>
+            <h2>Budget Max</h2>
 
             <div class="input-group">
                 <label for="username">Username</label>
@@ -90,6 +90,7 @@
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
+    color: #333;
   }
   
   .signup-link a {

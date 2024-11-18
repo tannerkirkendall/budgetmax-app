@@ -9,8 +9,10 @@
     <div v-if="storeUser.isLoggedIn">
       <RouterView />
     </div>
-    <div v-if="!storeUser.isLoggedIn">
-      <LoginOrCreateAccount></LoginOrCreateAccount>
+    <div class="loginOrRegister"  v-if="!storeUser.isLoggedIn">
+
+      <!-- <LoginOrCreateAccount></LoginOrCreateAccount> -->
+      <LoginOrRegister></LoginOrRegister>
     </div>
     
   </div>
@@ -18,7 +20,9 @@
 
 <script setup>
 import LoginOrCreateAccount from '@/components/LoginOrCreateAccount.vue';
+import LoginOrRegister from '@/components/LoginOrRegister.vue';
 import {useUserStore} from '@/stores/userStore'
+import './assets/base.css'
 const storeUser = useUserStore()
 
 import { onMounted, onUpdated } from 'vue'
@@ -29,7 +33,12 @@ onMounted(() => {
 </script>
 
 <style>
-/* .app{
-  text-align: center;
-} */
+.loginOrRegister{
+  font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 </style>

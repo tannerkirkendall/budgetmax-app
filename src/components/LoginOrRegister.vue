@@ -3,9 +3,14 @@
         <form @submit.prevent="getFormValues()" class="login-form">
             <h2>Budget Max</h2>
 
+            <div v-if="!loginForm" class="input-group">
+                <label for="fullname">Full Name</label>
+                <input v-model="fullName" type="text" id="fullName" name="fullName" placeholder="Enter your Full Name" required>
+            </div>
+
             <div class="input-group">
-                <label for="username">Username</label>
-                <input v-model="email" type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="username">E-Mail</label>
+                <input v-model="email" type="text" id="username" name="username" placeholder="Enter your E-Mail" required>
             </div>
 
             <div class="input-group">
@@ -13,9 +18,12 @@
                 <input v-model="password" type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
 
-            <button  type="submit" class="login-btn">Login</button>
+            <button v-show="!loginForm" type="submit" class="login-btn">Create Account</button>
+            <button v-show="loginForm" type="submit" class="login-btn">Login</button>
 
-            <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+            <p v-show="!loginForm" class="signup-link">Already have an account? <a @click="switchForm()" href="#">Sign in</a></p>
+            <p v-show="loginForm" class="signup-link">Don't have an account? <a @click="switchForm()" href="#">Sign up</a></p>
+
         </form>
     </div>
 </template>
@@ -25,13 +33,32 @@
     import {useUserStore} from '@/stores/userStore'
     const storeUser = useUserStore()
     const email = ref('')
+    const fullName = ref('')
     const password = ref('')
+    const loginForm = ref(true);
     function getFormValues(){
+      if (loginForm.value){
         storeUser.postLogin(email.value, password.value)
+      }
+      else{
+        storeUser.postCreateNewAccount(fullName.value, '', password.value, email.value)
+      }
+        
     }
+    function switchForm(){
+      if (loginForm.value){
+        loginForm.value = false
+      }
+      else{
+        loginForm.value = true;
+      }
+    }
+    
 </script>
 
 <style>
+
+
   .login-container {    
     background-color: #fff;
     padding: 30px;
@@ -40,7 +67,7 @@
     width: 100%;
     max-width: 400px;
   }
-
+ 
   h2 {
     text-align: center;
     margin-bottom: 20px;

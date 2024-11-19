@@ -36,6 +36,7 @@ onMounted(() => {
 .loginOrRegister{
     font-family: Arial, sans-serif;
     background-image: url("https://images.unsplash.com/photo-1725455510558-3bf31a46e13b?q=80&w=1372&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
     background-color: #f4f7fa;
     display: flex;
     justify-content: center;

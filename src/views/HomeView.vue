@@ -3,7 +3,8 @@
   <div class="home">
     <h1>Home</h1>
     
- 
+    {{ storeUser.getCategoriesForDropdown }}
+
   </div>
 </template>
 
@@ -16,11 +17,12 @@ const storeUser = useUserStore()
 onMounted(() => {
   console.log(`Home the component is now mounted.`)
   storeUser.checkLoggedIn()
+  storeUser.getCategories()
 })
 
 onUpdated(() => {
-  console.log(`home the component is now onUpdated.`)
-  storeUser.checkLoggedIn()
+  // console.log(`home the component is now onUpdated.`)
+  // storeUser.checkLoggedIn()
 })
 
 

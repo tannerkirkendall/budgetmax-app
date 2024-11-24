@@ -7,6 +7,7 @@ export const useUserStore = defineStore('users', () => {
 const apiBase = import.meta.env.VITE_APP_API_PATH
 const loginToken = ref('')
 const cats = ref({});
+const transactions = ref({});
 
 const config = computed(() =>  {
     return {headers: { Authorization: 'Bearer ' + loginToken.value }}
@@ -14,6 +15,10 @@ const config = computed(() =>  {
 
 const getCategoriesForDropdown = computed(() => {
     return cats.value;
+})
+
+const getAllTransactions = computed(() => {
+    return transactions.value;
 })
 
 const isLoggedIn = computed(()=> {
@@ -75,17 +80,21 @@ function postLogin(email, password) {
 }
 
 function getCategories(){
-    console.log('here')
-    console.log(config.value)
-    console.log(loginToken.value)
     axios
     .get(apiBase+'/api/Categories/all', config.value)
     .then((r) => {
         cats.value = r.data;
     })
-
 }
 
-    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout, getCategories, getCategoriesForDropdown }
+function getTransactions(){
+    axios
+    .get(apiBase+'/api/Transactions', config.value)
+    .then((r) => {
+        transactions.value = r.data;
+    })
+}
+
+    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions }
 
 })

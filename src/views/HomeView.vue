@@ -4,6 +4,10 @@
     <h1>Home</h1>
     
     {{ storeUser.getCategoriesForDropdown }}
+    <br>
+    <br>
+
+    {{ storeUser.getAllTransactions }}
 
   </div>
 </template>
@@ -18,6 +22,7 @@ onMounted(() => {
   console.log(`Home the component is now mounted.`)
   storeUser.checkLoggedIn()
   storeUser.getCategories()
+  storeUser.getTransactions();
 })
 
 onUpdated(() => {

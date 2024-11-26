@@ -4,8 +4,11 @@
     <h1>Home</h1>
     
     {{ storeUser.getCategoriesForDropdown }}
+
     <br>
     <br>
+
+    <NewTransaction></NewTransaction>
 
     {{ storeUser.getAllTransactions }}
 
@@ -13,7 +16,7 @@
 </template>
 
 <script setup>
-
+import NewTransaction from '@/components/NewTransaction.vue';
 import { onMounted, onUpdated } from 'vue'
 import {useUserStore} from '@/stores/userStore'
 const storeUser = useUserStore()

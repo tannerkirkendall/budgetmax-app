@@ -19,7 +19,6 @@
   </template>
 
 <script setup>
-import LoginOrCreateAccount from '@/components/LoginOrCreateAccount.vue';
 import LoginOrRegister from '@/components/LoginOrRegister.vue';
 import {useUserStore} from '@/stores/userStore'
 import './assets/base.css'

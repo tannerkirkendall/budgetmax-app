@@ -95,6 +95,22 @@ function getTransactions(){
     })
 }
 
-    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions }
+function saveTransactions(bankAccountName, date, amount, subCategoryId, transactionDescription){
+    const bodyParameters = {
+        bankAccountName: bankAccountName,
+        date: date,
+        amount: amount,
+        subCategoryId: subCategoryId,
+        transactionDescription: transactionDescription
+     };
+
+    axios
+    .post(apiBase+'/api/Transactions', bodyParameters, config.value)
+    .then(console.log)
+    .then(getTransactions())
+    .catch(console.log)
+}
+
+    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions, saveTransactions }
 
 })

@@ -1,31 +1,48 @@
 <template>
     <div class="form-container">
         <h2>Bank Transaction Form</h2>
-        <form id="transactionForm">
+        <form @submit.prevent="getFormValues()" id="transactionForm">
             <div class="form-group">
                 <label for="accountName">Bank Account Name</label>
-                <input type="text" id="accountName" name="accountName" placeholder="Enter account name" required>
+                <input v-model="bankAccountName" type="text" id="accountName" name="accountName" placeholder="Enter account name" required>
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" id="date" name="date" required>
+                <input v-model="date" type="date" id="date" name="date" required>
             </div>
             <div class="form-group">
                 <label for="amount">Amount</label>
-                <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
+                <input v-model="amount" type="number" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
             </div>
             <div class="form-group">
                 <label for="categoryId">Category ID</label>
-                <input type="number" id="categoryId" name="categoryId" placeholder="Enter category ID" required>
+                <input v-model="subCategoryId" type="number" id="categoryId" name="categoryId" placeholder="Enter category ID" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" rows="4" placeholder="Enter description"></textarea>
+                <textarea v-model="transactionDescription" id="description" name="description" rows="4" placeholder="Enter description"></textarea>
             </div>
             <button type="submit">Submit</button>
         </form>
     </div>
 </template>
+
+<script setup>
+    import {ref} from 'vue'
+    import {useUserStore} from '@/stores/userStore'
+    const storeUser = useUserStore()
+
+    //bankAccountName, date, amount, subCategoryId, transactionDescription
+    const bankAccountName = ref('');
+    const date = ref('');
+    const amount = ref();
+    const subCategoryId = ref();
+    const transactionDescription = ref('');
+
+    function getFormValues(){
+        storeUser.saveTransactions(bankAccountName.value, date.value, amount.value, subCategoryId.value, transactionDescription.value);
+    }
+</script>
 
 <style>
 .form-container {

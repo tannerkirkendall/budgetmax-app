@@ -1,6 +1,6 @@
 <template>
     <div class="form-container">
-        <h2>Bank Transaction Form</h2>
+        <h2>Add New Transaction</h2>
         <form @submit.prevent="getFormValues()" id="transactionForm">
             <div class="form-group">
                 <label for="accountName">Bank Account Name</label>

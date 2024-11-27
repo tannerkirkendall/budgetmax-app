@@ -1,5 +1,5 @@
 <template>
-<table class="bank-table">
+<table class="container">
     <thead>
       <tr>
         <th>Bank Account Name</th>
@@ -29,38 +29,102 @@ const storeUser = useUserStore()
 </script>
 
 <style>
-
-.bank-table {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Basic global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-.bank-table th,
-.bank-table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+h1 {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.bank-table th {
-  background-color: #4CAF50;
-  color: white;
+/* Container to center and add some padding */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.bank-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.bank-table tr:hover {
-  background-color: #f1f1f1;
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.bank-table td {
-  color: #555;
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+}
+
+td {
+    background-color: #fff;
+    font-size: 14px;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Make the table more readable on small screens */
+@media (max-width: 768px) {
+    table {
+        border: 0;
+        font-size: 14px;
+    }
+    
+    thead {
+        display: none; /* Hide table headers on mobile */
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    td {
+        display: block;
+        text-align: left;
+        padding: 1px 10px;
+        border: none;
+        position: relative;
+    }
+
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    td:last-child {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+/* Responsive column label styles for mobile */
+@media (max-width: 600px) {
+    td:before {
+        left: 0;
+        top: 0;
+    }
 }
 
 </style>

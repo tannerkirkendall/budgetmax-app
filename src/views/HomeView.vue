@@ -8,8 +8,14 @@
     <br>
     <br>
 
-    <NewTransaction></NewTransaction>
-    <TransactionsGrid></TransactionsGrid>
+    <div class="transactions">
+      <div class="new">
+        <NewTransaction></NewTransaction>
+      </div>
+      <div class="new">
+        <TransactionsGrid></TransactionsGrid>
+      </div>
+    </div>
 
     <!-- {{ storeUser.getAllTransactions }} -->
 
@@ -41,3 +47,27 @@ onUpdated(() => {
 
 </script>
 
+<style>
+.transactions{
+  display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between stacked items */
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto; /* Center the container horizontally */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.new{
+  background-color: rgb(214, 255, 236);
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+</style>

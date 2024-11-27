@@ -107,7 +107,7 @@ function saveTransactions(bankAccountName, date, amount, subCategoryId, transact
     axios
     .post(apiBase+'/api/Transactions', bodyParameters, config.value)
     .then(console.log)
-    .then(getTransactions())
+    // .then(getTransactions())
     .catch(console.log)
 }
 

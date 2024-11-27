@@ -16,7 +16,10 @@
             </div>
             <div class="form-group">
                 <label for="categoryId">Category ID</label>
-                <input v-model="subCategoryId" type="number" id="categoryId" name="categoryId" placeholder="Enter category ID" required>
+                <!-- <input v-model="subCategoryId" type="number" id="categoryId" name="categoryId" placeholder="Enter category ID" required> -->
+                <select  v-model="subCategoryId" id="options" name="options">
+                    <option v-for="user in storeUser.getCategoriesForDropdown.categories" :key="user.subCategoryId" :value="user.subCategoryId"> {{ user.categoryName }} - {{ user.subCategoryName }}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
@@ -41,6 +44,12 @@
 
     function getFormValues(){
         storeUser.saveTransactions(bankAccountName.value, date.value, amount.value, subCategoryId.value, transactionDescription.value);
+        bankAccountName.value = ''
+        date.value = ''
+        amount.value = ''
+        subCategoryId.value = ''
+        transactionDescription.value = ''
+        storeUser.getTransactions();
     }
 </script>
 
@@ -105,5 +114,22 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Optional: style the label */
+label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
 
 </style>

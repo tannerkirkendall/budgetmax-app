@@ -3,20 +3,23 @@
   <div class="home">
     <h1>Home</h1>
     
-    {{ storeUser.getCategoriesForDropdown }}
+    <!-- {{ storeUser.getCategoriesForDropdown }} -->
 
     <br>
     <br>
 
     <NewTransaction></NewTransaction>
+    <TransactionsGrid></TransactionsGrid>
 
-    {{ storeUser.getAllTransactions }}
+    <!-- {{ storeUser.getAllTransactions }} -->
+
 
   </div>
 </template>
 
 <script setup>
 import NewTransaction from '@/components/NewTransaction.vue';
+import TransactionsGrid from '@/components/TransactionsGrid.vue';
 import { onMounted, onUpdated } from 'vue'
 import {useUserStore} from '@/stores/userStore'
 const storeUser = useUserStore()

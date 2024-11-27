@@ -10,8 +10,6 @@
       <RouterView />
     </div>
     <div class="loginOrRegister"  v-if="!storeUser.isLoggedIn">
-
-      <!-- <LoginOrCreateAccount></LoginOrCreateAccount> -->
       <LoginOrRegister></LoginOrRegister>
     </div>
     

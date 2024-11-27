@@ -2,63 +2,63 @@
 <template>
   <div class="about">
     <h1>About</h1>
-    <div class="count">{{ storeCounter.count }}</div>
-    <div class="buttons">
-      <button @click="storeCounter.decreaseCount">-</button>
-      <button @click="storeCounter.increaseCount">+</button>
-      <button @click="storeCounter.getData(3)">Get</button>
-      <button @click="storeCounter.saveData">Save</button>
-    </div>
-    <hr>
-    <div>
-      The counter is: {{ storeCounter.oddOrEven }}
-    </div>
-    <hr>
-    <input v-model="storeCounter.count" type="number">
+    <div class="mainBudget">
+      <div class="budgetSelctor">
+        <span><<</span>
+        <span>Nov 1 - Nov 30</span>
+        <span>>></span>
+      </div>
+      <div class="budgetOverview">
+        <div class="budgetCategories">Essentials</div>
+        <div class="budgetCategories">Non-Essentials</div>
+        <div class="budgetCategories">Bills</div>
+      </div>
+      <div class="budgetCategoryOverview">
+        <div class="budgetCategory">Groceries</div>
+        <div class="budgetCategory">Medical</div>
+        <div class="budgetCategory">Piper</div>
+      </div>
 
-    <div>
-      Data: {{ storeCounter.prices }}
     </div>
-    <hr>
-
  
  
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue'
-import {useCounterStore} from '@/stores/counter'
-import CreateAccount from '@/components/CreateAccount.vue';
-import Login from '@/components/Login.vue';
-import LoginOrCreateAccount from '@/components/LoginOrCreateAccount.vue';
-import { onMounted, onUpdated } from 'vue'
-
-import {useUserStore} from '@/stores/userStore'
-const storeUser = useUserStore()
-
-onMounted(() => {
-  console.log(`about the component is now mounted.`)
-  storeUser.checkLoggedIn()
-})
-
-onUpdated(() => {
-  console.log(`about the component is now onUpdated.`)
-  storeUser.checkLoggedIn()
-})
-
-const storeCounter = useCounterStore()
-
 
 </script>
 
 <style>
-.count {
-  font-size: 60px;
-  margin: 20px;
+.about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* max-width: 750px; */
 }
-.buttons button {
-  font-size: 40px;
-  margin: 10px;
+
+.mainBudget{
+  background-color: red;
+  /* margin: 45px; */
+  /* flex-basis: 25%; */
 }
+
+.budgetSelctor{
+  background-color: cadetblue;
+
+}
+
+.budgetOverview{
+  background-color:burlywood
+}
+
+.budgetCategoryOverview{
+  background-color: pink;
+}
+
+.budgetCategory{
+  background-color: chocolate;
+  margin: 3px;
+}
+
 </style>

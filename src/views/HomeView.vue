@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+
 import NewTransaction from '@/components/NewTransaction.vue';
 import TransactionsGrid from '@/components/TransactionsGrid.vue';
 import { onMounted, onUpdated } from 'vue'

@@ -4,14 +4,24 @@
     <h1>About</h1>
     <div class="mainBudget">
       <div class="budgetSelctor">
-        <span><<</span>
-        <span>Nov 1 - Nov 30</span>
-        <span>>></span>
+        <span class="budgetdate leftArrow"><<</span>
+        <span class="budgetdate selectedDate">Nov 1 - Nov 30</span>
+        <span class="budgetdate rightArrow">>></span>
       </div>
       <div class="budgetOverview">
-        <div class="budgetCategories">Essentials</div>
-        <div class="budgetCategories">Non-Essentials</div>
-        <div class="budgetCategories">Bills</div>
+        <div class="budgetCategories">
+          <span class="budgetCategoriesName">Essentials</span>
+          <span class="budgetCategoriesLeft">$200.23</span>
+          
+        </div>
+        <div class="budgetCategories">
+          <span class="budgetCategoriesName">Non-Essentials</span>
+          <span class="budgetCategoriesLeft">$520.44</span>
+        </div>
+        <div class="budgetCategories">
+          <span class="budgetCategoriesName">Bills</span>
+          <span class="budgetCategoriesLeft">$1920.24</span>
+        </div>
       </div>
       <div class="budgetCategoryOverview">
         <div class="budgetCategory">Groceries</div>
@@ -20,8 +30,8 @@
       </div>
 
     </div>
- 
- 
+
+
   </div>
 </template>
 
@@ -31,34 +41,56 @@
 
 <style>
 .about{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* max-width: 750px; */
+  width: 600px;
+  margin: 15px;
 }
 
 .mainBudget{
-  background-color: red;
-  /* margin: 45px; */
-  /* flex-basis: 25%; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  font-size: 1.3em;
 }
 
 .budgetSelctor{
   background-color: cadetblue;
-
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
 }
 
-.budgetOverview{
-  background-color:burlywood
+
+.budgetCategories{
+  background-color:burlywood;
+  margin: 3px;
+  font-size: .8em;
+  border: solid;
+  height: 60px;
+  border-radius: 5px;
+  padding-top: 15px;
+}
+
+.budgetCategoriesLeft{
+  float: right;
+  margin-right: 15px;
+}
+
+.budgetCategoriesName{
+  margin-left: 15px;
 }
 
 .budgetCategoryOverview{
   background-color: pink;
+  border-radius: 5px;
 }
 
 .budgetCategory{
   background-color: chocolate;
-  margin: 3px;
+  margin: 5px;
+  border-radius: 3px;
 }
 
 </style>

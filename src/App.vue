@@ -6,7 +6,7 @@
       <RouterLink to="/about">About</RouterLink>
       <span @click="storeUser.logout()" v-show="storeUser.isLoggedIn"> | Logout</span> 
     </nav>
-    <div v-if="storeUser.isLoggedIn">
+    <div class="router" v-if="storeUser.isLoggedIn">
       <RouterView />
     </div>
     <div class="loginOrRegister"  v-if="!storeUser.isLoggedIn">
@@ -39,5 +39,10 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.router{
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -45,8 +45,9 @@ onMounted(() => {
     height: 100vh;
 }
 
-.router{
+/* .router{
   display: flex;
   justify-content: center;
-}
+
+} */
 </style>

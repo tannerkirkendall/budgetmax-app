@@ -1,130 +1,69 @@
 <template>
-<table class="container">
-    <thead>
-      <tr>
-        <th>Bank Account Name</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Category ID</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody >
-
-        <tr v-for="user in storeUser.getAllTransactions.transactions" :key="user.transactionId">
-        <td>{{ user.bankAccount }}</td>
-        <td>{{ user.transactionDate }}</td>
-        <td>{{ user.amount }}</td>
-        <td>{{ user.subCategoryId }}</td>
-        <td>{{ user.transactionDescription }}</td>
-      </tr>
-
-    </tbody>
-  </table>
+    <div v-for="cats in storeUser.getAllTransactions">
+        <div v-for="cat in cats">
+            <div class="catHeader">
+                <span class="catName">{{ cat.category }}</span>
+                <span class="catBugLft">{{ formatPrice(cat.budgetRemaining) }}</span>
+            </div>
+            <div v-for="sub in cat.subCategoriesSummary" class="subCat">
+                <div class="catName">{{ sub.subCategory }}:  {{ formatPrice(sub.budgetAmount) }}</div>
+                <div class="">
+                    <div class="catName">{{ formatPrice(sub.amountSpent) }}</div>
+                    <div class="catName">{{ formatPrice(sub.budgetRemaining) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
 import {useUserStore} from '@/stores/userStore'
 const storeUser = useUserStore()
+
+function formatPrice(value) {
+        let val = (value/1).toFixed(2).replace('.', '.')
+        return "$"+val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
 </script>
 
 <style>
-/* Basic global styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+
+.catHeader{
+  background-color: rgb(97, 96, 96);
+  color: azure;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: rgb(171, 171, 171);
+  padding: 3px;
+  font-size: 1.3em;
+}
+.catName{
+   
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-h1 {
-    text-align: center;
-    margin: 20px 0;
+.catBugLft {
+  float: right;
+  margin-right: 5px;
+  text-align: right;
 }
 
-/* Container to center and add some padding */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+.subCat{
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(236, 236, 236);
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: rgb(219, 219, 219);
+  padding: 5px;
+  text-align: right;
 
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-}
-
-td {
-    background-color: #fff;
-    font-size: 14px;
-}
-
-/* Row hover effect */
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Make the table more readable on small screens */
-@media (max-width: 768px) {
-    table {
-        border: 0;
-        font-size: 14px;
-    }
-    
-    thead {
-        display: none; /* Hide table headers on mobile */
-    }
-
-    tr {
-        display: block;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        background-color: #fff;
-        padding: 10px;
-    }
-
-    td {
-        display: block;
-        text-align: left;
-        padding: 1px 10px;
-        border: none;
-        position: relative;
-    }
-
-    td:before {
-        content: attr(data-label);
-        font-weight: bold;
-        position: absolute;
-        left: 10px;
-        top: 10px;
-    }
-
-    td:last-child {
-        border-bottom: 1px solid #ddd;
-    }
-}
-
-/* Responsive column label styles for mobile */
-@media (max-width: 600px) {
-    td:before {
-        left: 0;
-        top: 0;
-    }
 }
 
 </style>

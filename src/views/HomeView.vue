@@ -47,10 +47,7 @@ onUpdated(() => {
   overflow:scroll;
 } */
 
-.home{
-  /* width: 100vw; */
 
-}
 .topSection{
   background-color: aquamarine;
   height: 20vh;

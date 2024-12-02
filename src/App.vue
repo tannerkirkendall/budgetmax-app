@@ -33,6 +33,7 @@ onMounted(() => {
 .app{
   height: 100vh;
   overflow: hidden;
+  background-color: rgb(234, 220, 245);
 }
 .loginOrRegister{
     font-family: Arial, sans-serif;

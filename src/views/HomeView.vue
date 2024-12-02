@@ -49,6 +49,10 @@ onUpdated(() => {
 </script>
 
 <style>
+.home{
+  height: 90vh;
+  overflow:scroll;
+}
 .transactions{
   display: flex; /* Enable flexbox */
     flex-direction: column; /* Stack items vertically */

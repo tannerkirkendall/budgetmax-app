@@ -1,35 +1,212 @@
 
 <template>
-  <div class="about">
-    <h1>About</h1>
-    <div class="mainBudget">
-      <div class="budgetSelctor">
-        <span class="budgetdate leftArrow"><<</span>
-        <span class="budgetdate selectedDate">Nov 1 - Nov 30</span>
-        <span class="budgetdate rightArrow">>></span>
-      </div>
-      <div class="budgetOverview">
-        <div class="budgetCategories">
-          <span class="budgetCategoriesName">Essentials</span>
-          <span class="budgetCategoriesLeft">$200.23</span>
-          
-        </div>
-        <div class="budgetCategories">
-          <span class="budgetCategoriesName">Non-Essentials</span>
-          <span class="budgetCategoriesLeft">$520.44</span>
-        </div>
-        <div class="budgetCategories">
-          <span class="budgetCategoriesName">Bills</span>
-          <span class="budgetCategoriesLeft">$1920.24</span>
-        </div>
-      </div>
-      <div class="budgetCategoryOverview">
-        <div class="budgetCategory">Groceries</div>
-        <div class="budgetCategory">Medical</div>
-        <div class="budgetCategory">Piper</div>
-      </div>
 
+  <div class="about">
+
+
+    <div class="topSection">
+      top section
+    </div> 
+
+  <div class="bottomSection">
+
+    <div class="cat">
+    <span class="catName">Essentaials</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
     </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="cat">
+    <span class="catName">Essentaials 2</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="cat">
+    <span class="catName">Essentaials 3</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+
+  <div class="cat">
+    <span class="catName">Essentaials 4</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+
+  <div class="cat">
+    <span class="catName">Essentaials 5</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+
+  <div class="cat">
+    <span class="catName">Essentaials 6</span>
+    <span class="catBugLft">$432.12</span>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Gas</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Food</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+  <div class="subCat">
+    <span class="catName">Piper</span>
+    <span class="catBugLft">($203.55)</span>
+    <div>
+      <span class="catName">$250.00</span>
+      <span class="catBugLft">$46.45</span>
+    </div>
+  </div>
+
+
+  </div>
 
 
   </div>
@@ -40,57 +217,56 @@
 </script>
 
 <style>
+
 .about{
   width: 600px;
-  margin: 15px;
+  /* margin: 15px; */
+  background-color: blueviolet;
+
 }
 
-.mainBudget{
-  display: flex;
-  flex-direction: column;
-  /* background-color: red; */
-  font-size: 1.3em;
+.topSection{
+  background-color: aqua;
+  height: 20vh;
+  overflow: scroll;
 }
 
-.budgetSelctor{
-  background-color: cadetblue;
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 5px;
+.bottomSection{
+  height: 75vh;
+  overflow: scroll;
+  /* padding-bottom: 115px; */
 }
 
-
-.budgetCategories{
-  background-color:burlywood;
-  margin: 3px;
-  font-size: .8em;
-  border: solid;
-  height: 60px;
-  border-radius: 5px;
-  padding-top: 15px;
+.cat{
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: rgb(171, 171, 171);
+  background-color: rgb(228, 228, 228);
 }
 
-.budgetCategoriesLeft{
+.catName{
+  margin-left: 5px;
+}
+
+.catBugLft {
   float: right;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
-.budgetCategoriesName{
-  margin-left: 15px;
+.subCat{
+  background-color: rgb(236, 236, 236);
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-color: rgb(219, 219, 219)
 }
 
-.budgetCategoryOverview{
-  background-color: pink;
-  border-radius: 5px;
-}
 
-.budgetCategory{
-  background-color: chocolate;
-  margin: 5px;
-  border-radius: 3px;
+::-webkit-scrollbar {
+    display: none;
 }
 
 </style>

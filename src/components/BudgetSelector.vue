@@ -1,7 +1,8 @@
 <template>
-    <select  v-model="subCategoryId" id="options" name="options">
+    <select  v-model="storeUser.selectedBudget" id="options" name="options">
         <option v-for="user in storeUser.getAllBudgets.budgets" :key="user.budgetId" :value="user.budgetId"> {{ user.startDate }} - {{ user.endDate }}</option>
     </select>
+    {{ storeUser.selectedBudget }}
 </template>
 
 <script setup>

@@ -9,6 +9,7 @@ const loginToken = ref('')
 const cats = ref({});
 const transactions = ref({});
 const budgets = ref({});
+const selectedBudget = ref(0);
 
 const config = computed(() =>  {
     return {headers: { Authorization: 'Bearer ' + loginToken.value }}
@@ -25,6 +26,7 @@ const getAllTransactions = computed(() => {
 const getAllBudgets = computed(() => {
     return budgets.value;
 })
+
 
 const isLoggedIn = computed(()=> {
     if (loginToken.value.length > 0) return true
@@ -120,11 +122,12 @@ function getBudgets(){
     .get(apiBase+'/api/Budgets', config.value)
     .then((r) => {
         budgets.value = r.data;
+        selectedBudget.value = r.data.budgets[0].budgetId
     })
 }
 
     return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, 
         logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions, saveTransactions, 
-        getBudgets, getAllBudgets }
+        getBudgets, getAllBudgets, selectedBudget }
 
 })

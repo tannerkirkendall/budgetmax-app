@@ -29,8 +29,8 @@ onMounted(() => {
   console.log(`Home the component is now mounted.`)
   storeUser.checkLoggedIn()
   storeUser.getCategories()
-  storeUser.getTransactions();
   storeUser.getBudgets();
+  storeUser.getTransactions();
 })
 
 onUpdated(() => {

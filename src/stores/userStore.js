@@ -88,15 +88,23 @@ function postLogin(email, password) {
 
 function getCategories(){
     axios
-    .get(apiBase+'/api/Categories/all', config.value)
+    .get(apiBase+'/api/Categories', config.value)
     .then((r) => {
         cats.value = r.data;
     })
 }
 
+// function getTransactions(){
+//     axios
+//     .get(apiBase+'/api/Transactions', config.value)
+//     .then((r) => {
+//         transactions.value = r.data;
+//     })
+// }
+
 function getTransactions(){
     axios
-    .get(apiBase+'/api/Transactions', config.value)
+    .get(apiBase+'/api/Transactions/'+selectedBudget.value, config.value)
     .then((r) => {
         transactions.value = r.data;
     })

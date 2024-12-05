@@ -3,7 +3,7 @@
   <div class="home">
     <div class="topSection">
       <h1>Home</h1>
-
+      <BudgetSelector></BudgetSelector>
     </div>
     <div class="transactions">
       <TransactionsGrid></TransactionsGrid>
@@ -20,6 +20,7 @@
 
 
 import TransactionsGrid from '@/components/TransactionsGrid.vue';
+import BudgetSelector from '@/components/BudgetSelector.vue';
 import { onMounted, onUpdated } from 'vue'
 import {useUserStore} from '@/stores/userStore'
 const storeUser = useUserStore()
@@ -29,6 +30,7 @@ onMounted(() => {
   storeUser.checkLoggedIn()
   storeUser.getCategories()
   storeUser.getTransactions();
+  storeUser.getBudgets();
 })
 
 onUpdated(() => {

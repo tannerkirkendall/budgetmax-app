@@ -8,20 +8,7 @@ const apiBase = import.meta.env.VITE_APP_API_PATH
 const loginToken = ref('')
 const cats = ref({});
 const transactions = ref({});
-const newTrans = ref({cats:
-    [
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Essentials", budget:600.00, left:200.00, subCats:[{name:"Gas", budget:250.00, spent:200.00, left:50.00}, {name:"Food", budget:350.00, spent:200.00, left:150.00}]},
-    {name:"Non-Essentials", budget:75.00, left:-45.00, subCats:[{name:"Eat Out", budget:50.00, spent:100.00, left:-50.00}, {name:"Games", budget:25.00, spent:20.00, left:5.00}]}
-    ]
-});
+const budgets = ref({});
 
 const config = computed(() =>  {
     return {headers: { Authorization: 'Bearer ' + loginToken.value }}
@@ -33,6 +20,10 @@ const getCategoriesForDropdown = computed(() => {
 
 const getAllTransactions = computed(() => {
     return transactions.value;
+})
+
+const getAllBudgets = computed(() => {
+    return budgets.value;
 })
 
 const isLoggedIn = computed(()=> {
@@ -124,6 +115,16 @@ function saveTransactions(bankAccountName, date, amount, subCategoryId, transact
     .catch(console.log)
 }
 
-    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions, saveTransactions, newTrans }
+function getBudgets(){
+    axios
+    .get(apiBase+'/api/Budgets', config.value)
+    .then((r) => {
+        budgets.value = r.data;
+    })
+}
+
+    return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, 
+        logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions, saveTransactions, 
+        getBudgets, getAllBudgets }
 
 })

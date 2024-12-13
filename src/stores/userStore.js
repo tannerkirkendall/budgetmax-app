@@ -55,8 +55,11 @@ function checkLoggedIn() {
       let cookieKeyPair = c.split('=');
       if (cookieKeyPair[0].trim() === 'token'){
         loginToken.value = cookieKeyPair[1]
+        return true;
       }
     }
+    setCookie('token', "", -1)
+    return false;
   }
   
 function postCreateNewAccount(firstName, lastName, password, email){
@@ -134,8 +137,30 @@ function getBudgets(){
     })
 }
 
+async function init(){
+    await axios
+    .get(apiBase+'/api/Categories', config.value)
+    .then((r) => {
+        cats.value = r.data;
+    })
+
+    await axios
+    .get(apiBase+'/api/Budgets', config.value)
+    .then((r) => {
+        budgets.value = r.data;
+        selectedBudget.value = r.data.budgets[0].budgetId
+    })
+
+    await axios
+    .get(apiBase+'/api/Transactions/'+selectedBudget.value, config.value)
+    .then((r) => {
+        transactions.value = r.data;
+    })
+}
+
+
     return {postCreateNewAccount, postLogin, loginToken, checkLoggedIn, isLoggedIn, 
         logout, getCategories, getCategoriesForDropdown, getTransactions, getAllTransactions, saveTransactions, 
-        getBudgets, getAllBudgets, selectedBudget }
+        getBudgets, getAllBudgets, selectedBudget, init }
 
 })

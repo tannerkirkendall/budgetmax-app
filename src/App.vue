@@ -3,7 +3,8 @@
   <div class="app">
     <nav v-show="storeUser.isLoggedIn">
       <RouterLink to="/">Home</RouterLink> | 
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/transactions">New Transaction</RouterLink> |
+      <RouterLink to="/budget">Budget</RouterLink> 
       <span @click="storeUser.logout()" v-show="storeUser.isLoggedIn"> | Logout</span> 
     </nav>
     <div class="router" v-if="storeUser.isLoggedIn">
@@ -26,6 +27,7 @@ import { onMounted, onUpdated } from 'vue'
 onMounted(() => {
   storeUser.checkLoggedIn()
   console.log(import.meta.env.VITE_APP_API_PATH)
+  storeUser.init();
 })
 </script>
 

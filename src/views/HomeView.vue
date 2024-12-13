@@ -9,10 +9,7 @@
       <TransactionsGrid></TransactionsGrid>
 
     </div>
-
-
-
-
+    
   </div>
 </template>
 
@@ -27,10 +24,9 @@ const storeUser = useUserStore()
 
 onMounted(() => {
   console.log(`Home the component is now mounted.`)
-  storeUser.checkLoggedIn()
-  storeUser.getCategories()
-  storeUser.getBudgets();
-  storeUser.getTransactions();
+  var loggedin = storeUser.checkLoggedIn();
+  console.log("loggedin", loggedin);
+  
 })
 
 onUpdated(() => {
@@ -44,12 +40,6 @@ onUpdated(() => {
 </script>
 
 <style>
-/* .home{
-  height: 90vh;
-  overflow:scroll;
-} */
-
-
 .topSection{
   background-color: aquamarine;
   height: 20vh;
@@ -61,7 +51,6 @@ onUpdated(() => {
   overflow: scroll;
   
 }
-
 
 ::-webkit-scrollbar {
     display: none;
